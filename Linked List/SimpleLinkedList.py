@@ -116,14 +116,18 @@ class LinkedList:
 					updated_list.head.next = bufferd
 				else:
 					updated_list.head = temp
-					updated_list.tail = temp		
+					updated_list.tail = temp
+					temp.next = None		
 			else:
-				if (updated_list.tail != None):
+				if updated_list.tail != None:
 					updated_list.tail.next = temp
 					updated_list.tail = temp
+					updated_list.tail.next = None
 				else:
 					updated_list.tail = temp
 					updated_list.head = temp
+					temp.next = None
+			print "contents of updated_list", updated_list
 			temp = next_temp
 
 		return updated_list
