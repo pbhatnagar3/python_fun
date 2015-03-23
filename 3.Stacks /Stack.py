@@ -5,8 +5,10 @@ class My_Stack():
 	
 	def __init__(self):	
 		self.backing_data_structure = LinkedList()
+		self.size = 0
 
 	def add(self, data):
+		self.size += len(data)
 		for i in data:
 			if self.backing_data_structure.head == None:
 				self.backing_data_structure.head = Node(i)
@@ -18,6 +20,7 @@ class My_Stack():
 				self.backing_data_structure.head = temp
 
 	def push(self, i):
+		self.size += 1
 		if self.backing_data_structure.head == None:
 			self.backing_data_structure.head = Node(i)
 			self.backing_data_structure.tail = self.backing_data_structure.head
@@ -28,6 +31,7 @@ class My_Stack():
 			self.backing_data_structure.head = temp
 
 	def pop(self):
+		self.size -= 1
 		if self.backing_data_structure.head == None:
 			print "nothing to pop"
 			return
